@@ -12,19 +12,19 @@
       color: white;
       text-align: center;
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
       position: relative;
     }
 
     /* Заголовок */
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem; /* Уменьшен размер для мобильных устройств */
       animation: fadeIn 2s ease-in-out;
       margin-bottom: 20px;
     }
@@ -37,8 +37,8 @@
 
     /* Контейнер для фотографии */
     .photo-container {
-      width: 300px;
-      height: 300px;
+      width: 200px; /* Уменьшен размер для мобильных устройств */
+      height: 200px;
       border-radius: 50%;
       overflow: hidden;
       border: 5px solid white;
@@ -62,9 +62,9 @@
 
     /* Текст поздравления */
     .message {
-      font-size: 1.2rem;
+      font-size: 1rem; /* Уменьшен размер для мобильных устройств */
       line-height: 1.6;
-      max-width: 600px;
+      max-width: 90%; /* Уменьшена ширина для мобильных устройств */
       margin: 0 auto;
       animation: slideUp 2s ease-in-out;
     }
@@ -139,6 +139,27 @@
       max-height: 90%;
       border-radius: 10px;
     }
+
+    /* Медиа-запросы для адаптивности */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem; /* Еще меньше на очень маленьких экранах */
+      }
+
+      .photo-container {
+        width: 150px;
+        height: 150px;
+      }
+
+      .message {
+        font-size: 0.9rem;
+      }
+
+      .button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -174,7 +195,7 @@
         heart.innerHTML = '❤️';
         heart.style.left = Math.random() * 100 + 'vw'; // Случайная позиция по горизонтали
         heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // Случайная скорость
-        heart.style.fontSize = Math.random() * 30 + 20 + 'px'; // Случайный размер
+        heart.style.fontSize = Math.random() * 20 + 15 + 'px'; // Уменьшен размер для мобильных устройств
         document.body.appendChild(heart);
 
         // Удаляем сердечко после завершения анимации
@@ -195,10 +216,10 @@
       // Создаем сердечки
       createHearts();
 
-      // Убираем гифку через 5 секунд (или другое время)
+      // Убираем гифку через 10 секунд
       setTimeout(() => {
         gifOverlay.classList.remove('active');
-      }, 10000); // Гифка исчезнет через 5 секунд
+      }, 10000);
     });
   </script>
 </body>
